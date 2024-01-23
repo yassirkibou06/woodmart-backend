@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const { createProduct, getaProduct, getAllProducts, updateaProduct, deleteaProduct, addToWishlist, rating, uploadImages } = require('../controller/productCtrl');
 const { isAdmin, authMiddleware } = require('../middlewares/authMiddleware');
 const { uploadPhotos, productImageResize } = require('../middlewares/uploadImages');
@@ -16,4 +16,4 @@ router.delete('/:id',authMiddleware, isAdmin, deleteaProduct);
 router.get('/', getAllProducts);
 
 
-module.exports = router
+module.exports = router*/
