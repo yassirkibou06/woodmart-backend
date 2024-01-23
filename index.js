@@ -32,8 +32,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 */
+
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port`);
-})
-
-/*"server": "nodemon index.js"**/
+});
