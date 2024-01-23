@@ -21,6 +21,12 @@ app.use(cookieParser());
 
 app.get('/', (req, res) => res.send('Home Page Route'));
 
+app.use("/api/user", authRoute);
+app.use("/api/product", productRoute);
+app.use("/api/category", categoryRoute);
+app.use("/api/brand", brandRoute);
+app.use("/api/coupon", couponRoute);
+
 
 app.use(notFound);
 app.use(errorHandler);
