@@ -25,13 +25,13 @@ app.use("/api/coupon", couponRoute);
 app.use(notFound);
 app.use(errorHandler);
 
-
+/*
 dbConnect();
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
+*/
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${PORT}`);
 })
