@@ -7,11 +7,11 @@ const productRoute = require('./routes/productRoute');
 const categoryRoute = require('./routes/categoryRoute');
 const brandRoute = require('./routes/brandRoute');
 const couponRoute = require('./routes/couponRoute');
-const bodyParser = require('body-parser');
-const { notFound, errorHandler } = require('./middlewares/errorHandler');
+const { notFound, errorHandler } = require('./middlewares/errorHandler');*/
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
-*/
+const bodyParser = require('body-parser');
+
 app.get('/', (req, res) => res.send('Home Page Route'));
 /*
 app.use("/api/user", authRoute);
@@ -26,10 +26,10 @@ app.use(errorHandler);
 
 */
 dbConnect();
-/*app.use(morgan('dev'));
+app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());*/
+app.use(cookieParser());
 
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port`);
