@@ -10,7 +10,7 @@ const couponRoute = require('./routes/couponRoute');
 const bodyParser = require('body-parser');
 const { notFound, errorHandler } = require('./middlewares/errorHandler');
 const cookieParser = require('cookie-parser');
-const morgan = require('morgan');*/
+const morgan = require('morgan');
 
 app.get('/', (req, res) => res.send('Home Page Route'));
 
