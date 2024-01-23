@@ -2,7 +2,7 @@ const { default: mongoose } = require("mongoose");
 
 const dbConnect = () => {
     try {
-        const conn = mongoose.connect(process.env.MONGO_URI);
+        const conn = mongoose.connect(process.env.MONGODB_URI);
         console.log("Database connected");
     } catch (error) {
         console.log("Database not connected");
