@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv').config();
 const dbConnect = require('./config/dbConnect');
-const authRoute = require('./routes/authRoute');
+/*const authRoute = require('./routes/authRoute');
 const productRoute = require('./routes/productRoute');
 const categoryRoute = require('./routes/categoryRoute');
 const brandRoute = require('./routes/brandRoute');
@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 const { notFound, errorHandler } = require('./middlewares/errorHandler');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
-/*
+
 app.get('/', (req, res) => res.send('Home Page Route'));
 
 app.use("/api/user", authRoute);
