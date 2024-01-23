@@ -11,9 +11,9 @@ const bodyParser = require('body-parser');
 const { notFound, errorHandler } = require('./middlewares/errorHandler');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
-
-app.get('/', (req, res) => res.send('Home Page Route'));
 /*
+app.get('/', (req, res) => res.send('Home Page Route'));
+
 app.use("/api/user", authRoute);
 app.use("/api/product", productRoute);
 app.use("/api/category", categoryRoute);
