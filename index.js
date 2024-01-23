@@ -12,7 +12,7 @@ const { notFound, errorHandler } = require('./middlewares/errorHandler');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 
-
+/*
 app.get('/', (req, res) => res.send('Home Page Route'));
 
 app.use("/api/user", authRoute);
@@ -25,7 +25,7 @@ app.use("/api/coupon", couponRoute);
 app.use(notFound);
 app.use(errorHandler);
 
-/*
+
 dbConnect();
 app.use(morgan('dev'));
 app.use(bodyParser.json());
