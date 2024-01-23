@@ -1,8 +1,15 @@
 {
-    "rewrites": [
+    "routes": [
         {
-            "source": "/api/index.js",
-            "destination": "/"
+            "src": "/",
+            "dest": "/api/index.js"
+        },
+        {
+            "src": "/product",
+            "methods": [
+                "POST",
+                "GET"
+            ]
         }
     ]
 }
