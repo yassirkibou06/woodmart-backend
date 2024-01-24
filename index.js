@@ -12,6 +12,13 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
+
+dbConnect();
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+
 app.get('/', (req, res) => res.send('Home Page Route'));
 
 app.use("/api/user", authRoute);
@@ -23,12 +30,6 @@ app.use("/api/coupon", couponRoute);
 
 app.use(notFound);
 app.use(errorHandler);
-
-dbConnect();
-app.use(morgan('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port`);
