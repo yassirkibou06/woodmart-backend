@@ -3,7 +3,7 @@ const app = express();
 const dotenv = require('dotenv').config();
 const dbConnect = require('./config/dbConnect');
 //const authRoute = require('./routes/authRoute');
-//const categoryRoute = require('./routes/categoryRoute');
+const categoryRoute = require('./routes/categoryRoute');
 //const brandRoute = require('./routes/brandRoute');
 //const couponRoute = require('./routes/couponRoute');
 //const productRoute = require('./routes/productRoute');
@@ -12,12 +12,12 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
-app.get('/', (req, res) => res.send('Home Page Route'));
+//app.get('/', (req, res) => res.send('Home Page Route'));
 
 //app.use("/api/user", authRoute);
 //app.use("/api/product", productRoute);
-/*app.use("/api/category", categoryRoute);
-app.use("/api/brand", brandRoute);
+app.use("/api/category", categoryRoute);
+/*app.use("/api/brand", brandRoute);
 app.use("/api/coupon", couponRoute);*/
 
 
