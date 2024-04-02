@@ -2,6 +2,8 @@ const User = require('../models/userModel');
 const Product = require('../models/productModel');
 const Coupon = require('../models/couponModel');
 const Cart = require('../models/cartModel');
+const Order = require('../models/orderModel');
+const uniqid = require('uniqid');
 const { generateToken } = require('../config/jwtToken');
 const jwt = require('jsonwebtoken');
 const asyncHandler = require('express-async-handler');
@@ -42,6 +44,7 @@ const loginUser = asyncHandler(async (req, res) => {
             lastname: findUser?.lastname,
             email: findUser?.email,
             mobile: findUser?.mobile,
+            role: findUser?.role,
             token: generateToken(findUser?._id)
         });
     } else {
@@ -129,7 +132,8 @@ const handleRefreshToken = asyncHandler(async (req, res) => {
     })
 })
 
-// logout
+// logout 
+/*
 const logout = asyncHandler(async (req, res) => {
     const cookie = req.cookies;
     if (!cookie?.refreshToken) throw new Error('No refresh token in cookies');
@@ -150,7 +154,28 @@ const logout = asyncHandler(async (req, res) => {
         secure: true
     });
     res.sendStatus(204);
-})
+})*/
+const logout = asyncHandler(async (req, res) => {
+    const token = req.headers.authorization;
+
+    if (!token) {
+        console.error('No refresh token in request headers');
+        return res.status(400).json({ message: 'No refresh token in request headers' });
+    }
+    
+    const user = await User.findOne({ refreshToken: token });
+    if (!user) {
+        console.log('User not found with refreshToken:', token);
+        return res.sendStatus(204);
+    }
+    
+    await User.findOneAndUpdate({ refreshToken: token }, { refreshToken: '' });
+
+    res.sendStatus(204);
+});
+
+
+
 
 //update a user
 const updateaUser = asyncHandler(async (req, res) => {
@@ -357,6 +382,7 @@ const applyCoupon = asyncHandler(async (req, res) => {
     res.json(totalAfterDiscount);
 });
 
+// create order
 const createOrder = asyncHandler(async (req, res) => {
     const { COD, couponApplied } = req.body;
     const { _id } = req.user;

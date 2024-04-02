@@ -5,7 +5,7 @@ const fs = require("fs");
 
 const multerStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, "../public/images"));
+        cb(null, path.join(__dirname, "../public/images/"));
     },
     filename: (req, file, cb) => {
         const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
@@ -28,7 +28,7 @@ const multerFilter = (req, file, cb) => {
 const uploadPhotos = multer({
     storage: multerStorage,
     fileFilter: multerFilter,
-    limits: {fileSize: 2000000},
+    limits: { fileSize: 2000000 },
 });
 
 const productImageResize = async (req, res, next) => {
@@ -40,7 +40,7 @@ const productImageResize = async (req, res, next) => {
                 .toFormat("jpeg")
                 .jpeg({ quality: 90 })
                 .toFile(`public/images/products/${file.filename}`);
-                fs.unlinkSync(`public/images/products/${file.filename}`);
+            fs.unlinkSync(`public/images/products/${file.filename}`);
         })
     );
     next();

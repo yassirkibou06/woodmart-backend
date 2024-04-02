@@ -7,8 +7,8 @@ var productSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    slug: {
-        type: String,
+    sku: {
+        type: Number,
         required: true,
         unique: true
     },
@@ -19,6 +19,12 @@ var productSchema = new mongoose.Schema({
     price: {
         type: Number,
         required: true
+    },
+    slug: {
+        type: String,
+        unique: true,
+        required: true,
+        trim: true
     },
     category: {
         type: String,
